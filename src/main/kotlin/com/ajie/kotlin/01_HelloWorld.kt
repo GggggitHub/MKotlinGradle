@@ -1,4 +1,6 @@
 package com.ajie.kotlin
+
+//顶级函数 一等公民，不需要 receiver
 fun main(){
     print("Hello world")
 }
