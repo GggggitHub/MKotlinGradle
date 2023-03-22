@@ -10,7 +10,7 @@ import kotlin.math.abs
  * https://www.kotlincn.net/docs/reference/coroutines/basics.html
  */
 
- fun main() {
+suspend fun main() {
     //1 非阻塞式协程    没有block 主线程。
 //    GlobalScopeLaunch()
 
@@ -21,7 +21,25 @@ import kotlin.math.abs
 //    GlobalScopeJobJoin()
 
     //4
-    coroutineScopeDemo()
+    coroutineScopeDemo()//
+
+//    GlobalScope.launch {
+//        repeat(100_000) { // 启动大量的协程
+//        delay(100L)
+//        System.out.println(":main:tName:["+Thread.currentThread().getName()+"]: $it");
+////            println("$it ,")
+//        }
+//    }.join()
+
+    System.out.println(":main:tName:["+Thread.currentThread().getName()+"]: repeat after");
+    Thread.sleep(10000L)
+
+
+
+//    System.out.println(":main: method end");
+//    Thread.sleep(2000L)
+//    System.out.println(":main:tName:["+Thread.currentThread().getName()+"]: sleep end");
+
 }
 
 fun coroutineScopeDemo() {
@@ -47,6 +65,8 @@ fun coroutineScopeDemo() {
 
         println("Coroutine scope is over 4") //执行顺序4， 这一行在内嵌 launch 执行完毕后才输出
     }
+    System.out.println(":coroutineScopeDemo:tName:["+Thread.currentThread().getName()+"]: runBlocking after");
+
 }
 
 
@@ -71,12 +91,14 @@ private fun runBlockingDemo() {
     runBlocking<Unit> { // 开始执行主协程
         GlobalScope.launch { // 在后台启动一个新的协程并继续
             delay(1000L)
-            println("World!")
+            System.out.println(":runBlockingDemo:tName:["+Thread.currentThread().getName()+"]: World!")
         }
-        println("Hello,") // 主协程在这里会立即执行
+        System.out.println(":runBlockingDemo:tName:["+Thread.currentThread().getName()+"]: Hello,") // 主协程在这里会立即执行
         delay(2000L)      //block 主线程。 延迟 2 秒来保证 JVM 存活
-        println("main:delay 2000L over")
+        System.out.println(":runBlockingDemo:tName:["+Thread.currentThread().getName()+"]:delay 2000L afer runBlocking end")
     }
+    System.out.println(":runBlockingDemo:tName:["+Thread.currentThread().getName()+"]: out runBlocking over");
+
 }
 
 //1
@@ -85,7 +107,10 @@ private fun GlobalScopeLaunch() {
     GlobalScope.launch { // 在后台启动一个新的协程并继续
         delay(1000L) // 非阻塞的等待 1 秒钟（默认时间单位是毫秒）
         println("World!") // 在延迟后打印输出 ,Thread.sleep(2000L)之后打印。主线程被block 了
+        System.out.println(":GlobalScopeLaunch:tName:["+Thread.currentThread().getName()+"]: World！");
+
     }
-    println("Hello,") // 协程已在等待时主线程还在继续
+    System.out.println(":GlobalScopeLaunch:tName:["+Thread.currentThread().getName()+"]: Hello,");
+//    println("Hello,") // 协程已在等待时主线程还在继续
     Thread.sleep(2000L) // 阻塞主线程 2 秒钟来保证 JVM 存活
 }

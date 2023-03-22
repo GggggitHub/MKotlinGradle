@@ -35,6 +35,7 @@ fun String.first() :Char{
     return this[0]
 }
 
+//新增扩展方法
 fun Function_Extend_Origin.first() : Char{
     return this.name[0];
 }

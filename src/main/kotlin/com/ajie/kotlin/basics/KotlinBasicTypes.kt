@@ -2,6 +2,15 @@ package com.bennyhuo.kotlin.builtintypes.basics
 
 fun main() {
 
+    var wrapInt:Int? = null;
+    var toInt = wrapInt?.toInt()
+    var i1 = toInt ?: -1
+    System.out.println(":main: wrapInt:${wrapInt},");
+    //在 Kotlin 中，类型检查是基于类型擦除的，这意味着运行时类型信息不包括泛型和可空类型的信息。
+    System.out.println(":main: wrapInt:${i1 is Int},${i1 is Int?}");//ture true ??
+
+
+
     var aInt = 2
     val bString = "Hello Kotlin"
 

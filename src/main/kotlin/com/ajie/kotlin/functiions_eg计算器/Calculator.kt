@@ -17,6 +17,7 @@ fun main(vararg args: String) {
     )
 
     val op = args[1]
+    //有可能 null ,因为输入错误，map 中没有对应的 method
     val opFunc = operators[op] ?: return showHelp()
 
     try {

@@ -1,5 +1,7 @@
 package com.ajie.kotlin;
 
+import java.util.Random;
+
 /**
  * @author Ajie
  * @date 2022/5/30
@@ -10,6 +12,7 @@ package com.ajie.kotlin;
  */
 public class IDEA_TEST_JAVA {
     public static void main(String[] args) {
-        System.out.println("IDEA_TEST_JAVA:main: well down");
+        int i = new Random(10).nextInt();
+        System.out.println("IDEA_TEST_JAVA:main: well down. random:"+i);
     }
 }

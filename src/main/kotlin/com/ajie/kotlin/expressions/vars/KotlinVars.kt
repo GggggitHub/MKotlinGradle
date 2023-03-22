@@ -12,7 +12,9 @@ class KotlinVars {
 }
 
 object KotlinVars2 {
-    const val b = 3
+    fun test(){
+        System.out.println("KotlinVars2:test: ");
+    }
 }
 
 
@@ -24,6 +26,9 @@ class X {
 }
 
 fun main() {
+
+    var kotlinVars = KotlinVars2
+    var kotlinVars2 = KotlinVars2
     var a = 2
     a = 3
 

@@ -44,9 +44,13 @@ fun main() {
 
     func()
 
+    //两种创建方式
     var pair = 2 to 3
-    pair.first
-    pair.second
+    val pair2 = Pair("Hello","Kotlin")
+    //获取对应元素
+    var first = pair.first
+    var second = pair.second
+    var (x,y) = pair //解构
 
     var to = 2.to(3)
 

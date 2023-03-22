@@ -40,7 +40,6 @@ fun main(vararg args: String) {
     val (a, b, c) = multiReturnValues() //伪
     val r = a + b
     val r1 = a + c
-
 }
 
 

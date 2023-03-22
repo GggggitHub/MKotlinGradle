@@ -3,19 +3,27 @@ package com.bennyhuo.kotlin.builtintypes.arrays
 fun main() {
 
     val a = IntArray(5)
-    println(a.size) //same with the Collections(e.g. List)
+    println(a.size)
 
-    val b = ArrayList<String>()
-    println(b.size)
+
+    //集合 typealias ArrayList<E> = java.util.ArrayList
+    val stringList = ArrayList<String>()
+    println(stringList.size)
+    stringList.add("abc")
+
 
     val c0 = intArrayOf(1, 2, 3, 4, 5)
     val c1 = IntArray(5){ 3 * (it + 1) } // y = 3*(x + 1)
 
-    println(c1.contentToString())
+    println(c0.contentToString())
 
-   val d = arrayOf("Hello", "World")
-    d[1] = "Kotlin"
-    println("${d[0]}, ${d[1]}")
+    // 创建一个具有指定大小的空数组
+    val array1 = arrayOfNulls<String>(5)
+
+    //Array<String>
+    val strArray = arrayOf("Hello", "World")
+    strArray[1] = "Kotlin"
+    println("${strArray[0]}, ${strArray[1]}")
 
     val e = floatArrayOf(1f, 3f, 5f, 7f)
     for (element in e) {
